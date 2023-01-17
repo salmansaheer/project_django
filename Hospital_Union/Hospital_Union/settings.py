@@ -31,13 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
     'users',
+    'hosptails',
+    'guest',
 ]
 
 MIDDLEWARE = [
@@ -50,7 +46,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'Hospitail_Union.urls'
+ROOT_URLCONF = 'Hospital_Union.urls'
 
 TEMPLATES = [
     {
@@ -68,7 +64,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'Hospitail_Union.wsgi.application'
+WSGI_APPLICATION = 'Hospital_Union.wsgi.application'
 
 
 # Database
