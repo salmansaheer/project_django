@@ -1,0 +1,16 @@
+{% extends 'creator/shared/base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+    <div class="row">
+        <div class="col-6 offset-3 jumbotron">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    {{form|crispy}}
+                </table>
+                <br>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+{% endblock main %}

@@ -23,6 +23,6 @@ urlpatterns = [
     path('', include('guest.urls')),
     path('user/', include('users.urls')),
     path('hospitals/',include('hospitals.urls')),
-    
+    path('creator/',include('creator.urls'))
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
