@@ -1,6 +1,13 @@
 {% extends 'users/shared/base.html' %}    
     {% block main %}
-    <h1>
-        HELLO WORLD
-    </h1>
+        <h2>First Name: {{ user_data.firstname }}</h2>
+        <h2>Last Name: {{ user_data.lastname }}</h2>
+        <h2>Gender: {{ user_data.gender }}</h2>
+        <h2>Date of Birth: {{ user_data.dob }}</h2>
+        <h2>Address: {{ user_data.address }}</h2>
+        <h2>Marital Status: {{ user_data.marital }}</h2>
+        <h2>Religion: {{ user_data.religion }}</h2>
+        <h2>Caste: {{ user_data.caste }}</h2>
+        <h2>Phone number: {{ user_data.phone }}</h2>
+        <h2>Blood Group: {{ user_data.bloodgroup }}</h2>
     {% endblock %}
