@@ -4,7 +4,7 @@ from .models import *
 class USERS(forms.ModelForm):
     class Meta:
         model = Users
-        exclude = []
+        exclude = ['general_details']
         widgets = {
             'marital': forms.Select(),
             'gender': forms.Select(),
@@ -15,7 +15,7 @@ class USERS(forms.ModelForm):
 class GENERALDETAILS(forms.ModelForm):
     class Meta:
         model =GeneralDetails
-        exclude = []
+        exclude = ['role']
         widgets = {
         }
         

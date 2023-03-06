@@ -2,6 +2,7 @@
     {% block main %}
         <h2>First Name: {{ user_data.firstname }}</h2>
         <h2>Last Name: {{ user_data.lastname }}</h2>
+        <h2><img src="/media/{{ user_data.image }}" alt=""></h2>
         <h2>Gender: {{ user_data.gender }}</h2>
         <h2>Date of Birth: {{ user_data.dob }}</h2>
         <h2>Address: {{ user_data.address }}</h2>

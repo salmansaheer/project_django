@@ -23,7 +23,7 @@ class GeneralDetails(models.Model):
     role = models.CharField(
         verbose_name="role",
         max_length=50,
-        default='user'
+        # default='user'
     )
 
 class Users(models.Model):
@@ -92,14 +92,14 @@ class Users(models.Model):
         choices=BLOODGROUP
     )
 
-    # image = models.FileField(
-    #     verbose_name='Photo',
-    #     upload_to='User_Photo',
-    #     max_length=300) 
+    image = models.FileField(
+        verbose_name='Photo',
+        upload_to='User_Photo',
+        max_length=300) 
 
     general_details = models.ForeignKey(
         to=GeneralDetails,
-        on_delete=models.CASCADE,)
+        on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
@@ -115,12 +115,6 @@ class Hospital(models.Model):
         verbose_name="Phone number"
     )
 
-    doctors = models.TextField(
-        verbose_name = 'Doctors')
-
-    staffs = models.TextField(
-        verbose_name = 'Staffs')
-
-    general_id = models.ForeignKey(
+    general_details = models.ForeignKey(
         to=GeneralDetails,
         on_delete=models.CASCADE)

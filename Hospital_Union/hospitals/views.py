@@ -1,5 +1,24 @@
 from django.shortcuts import render,redirect
 from .models import StaffsAndDoctors
+from creator.models import GeneralDetails,Users
+
+def my_login_required(view_func):
+    def wrapper(request, *args, **kwargs):
+        if 'userid' in request.session:
+            id = request.session['userid']
+            user = GeneralDetails.objects.get(pk=id)
+            if user.role == 'admin':
+                return redirect('creator_home')
+            elif user.role == 'user':
+                return redirect('users_home')
+            elif user.role == 'hospital':
+                return view_func(request, *args, **kwargs)
+            else:
+                return redirect('guest_login')
+        else:
+            return redirect('guest_login')
+    return wrapper
+
 
 def home(request):
     return render(request, 'hospitals/home.html')
@@ -23,6 +42,7 @@ def about(request):
     return render(request, 'hospitals/about.html')
 
 def view_staff(request):
+
     return render(request,'hospitals/view_staff.html' )
 
 def add_staff(request):
@@ -39,7 +59,3 @@ def add_doctors(request):
     
 def remove_doctors(request):
     return render(request,'hospitals/remove_doctors.html' )
-
-def add_doc(request):
-    return render(request,'hospitals/remove_doctors.html' )
-    

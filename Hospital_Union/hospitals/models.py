@@ -3,22 +3,6 @@ from creator.models import *
 
 # Create your models here.
 class MedicalHistory(models.Model):
-    # person=models.ForeignKey(
-    #     to=Users,)
-
-    # hospital = models.ForeignKey(
-    #     to= Hospital,)
-
-    medical_data = models.TextField(
-        verbose_name="Medical Data")
-
-    check_up_doctor = models.CharField(
-        verbose_name="Doctor Appointed",
-        max_length=50)
-
-    date_of_checkup = models.DateField()
-
-class MedicalHistory(models.Model):
     title = models.CharField(verbose_name='Title', max_length=100)
 
     file = models.FileField(
@@ -35,11 +19,13 @@ class MedicalHistory(models.Model):
         verbose_name='checkup date',
     )
 
-     # person=models.ForeignKey(
-    #     to=Users,)
+    person=models.ForeignKey(
+        to=Users,
+        on_delete=models.RESTRICT)
 
-    # hospital = models.ForeignKey(
-    #     to= Hospital,)
+    hospital = models.ForeignKey(
+        to= Hospital,
+        on_delete=models.RESTRICT)
 
 
     def __str__(self):
@@ -73,4 +59,11 @@ class StaffsAndDoctors(models.Model):
     password = models.CharField(
         verbose_name="Password",
         max_length=20
+    )
+
+    is_deleted = models.BooleanField(
+        default=False)
+    
+    is_public = models.BooleanField(
+        default=False
     )
